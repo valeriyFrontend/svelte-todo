@@ -3,6 +3,8 @@ const options = {
 }
 
 function callback(mutationList, observer) {
+  const isPanelVisible = document.querySelector('.player--panel-visible');
+  
   mutationList.forEach(function(mutation) {
     if (mutation.type === 'attributes' && mutation.attributeName === 'class') {
       if (!isPanelVisible) {
