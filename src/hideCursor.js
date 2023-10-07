@@ -12,7 +12,7 @@ function callback(mutationList, observer) {
         document.body.style.cursor = "none";
       } else {
         console.log(isPanelVisible, 2);
-        document.body.cursor = "inherit";
+        document.body.removeProperty("cursor");
       }
     }
   })
