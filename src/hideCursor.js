@@ -9,7 +9,7 @@ function callback(mutationList, observer) {
     if (mutation.type === 'attributes' && mutation.attributeName === 'class') {
       if (!isPanelVisible) {
         console.log(isPanelVisible, 1);
-        document.body.style.cursor = "none";
+        document.body.setProperty('cursor', 'none');
       } else {
         console.log(isPanelVisible, 2);
         document.body.removeProperty("cursor");
