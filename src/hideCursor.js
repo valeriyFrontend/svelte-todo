@@ -8,10 +8,8 @@ function callback(mutationList, observer) {
   mutationList.forEach(function(mutation) {
     if (mutation.type === 'attributes' && mutation.attributeName === 'class') {
       if (!isPanelVisible) {
-        console.log(isPanelVisible, 1);
         document.body.style.setProperty('cursor', 'none');
       } else {
-        console.log(isPanelVisible, 2);
         document.body.style.removeProperty("cursor");
       }
     }
@@ -29,4 +27,5 @@ function addObserverIfDesiredNodeAvailable() {
     const observer = new MutationObserver(callback)
     observer.observe(isPanelVisible, options)
 }
+
 addObserverIfDesiredNodeAvailable();
