@@ -1,5 +1,3 @@
-const isPanelVisible = document.querySelector('.player--panel-visible');
-
 const options = {
   attributes: true
 }
@@ -18,5 +16,15 @@ function callback(mutationList, observer) {
   })
 }
 
-const observer = new MutationObserver(callback)
-observer.observe(isPanelVisible, options)
+function addObserverIfDesiredNodeAvailable() {
+    const isPanelVisible = document.querySelector('.player--panel-visible');
+    if(!isPanelVisible) {
+        //The node we need does not exist yet.
+        //Wait 500ms and try again
+        window.setTimeout(addObserverIfDesiredNodeAvailable,500);
+        return;
+    }
+    const observer = new MutationObserver(callback)
+    observer.observe(isPanelVisible, options)
+}
+addObserverIfDesiredNodeAvailable();
