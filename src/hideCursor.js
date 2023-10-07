@@ -7,10 +7,10 @@ function callback(mutationList, observer) {
     if (mutation.type === 'attributes' && mutation.attributeName === 'class') {
       if (!isPanelVisible) {
         console.log(isPanelVisible, 1);
-        document.querySelector("body").style.cursor = "none";
+        document.body.style.cursor = "none";
       } else {
         console.log(isPanelVisible, 2);
-        document.querySelector("body").style.cursor = "default";
+        document.body.cursor = "default";
       }
     }
   })
